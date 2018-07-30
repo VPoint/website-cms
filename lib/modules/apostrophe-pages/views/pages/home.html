@@ -1,0 +1,32 @@
+{#
+  This is an example home page template. It inherits and extends a layout template
+  that lives in the top-level views/ folder for convenience
+#}
+
+{% extends "layout.html" %}
+
+{% block main %}
+	<section id="header-slide-show">
+		{{ apos.area(data.page, 'slide_show', {
+			  widgets: {
+				'apostrophe-images': {
+				  size: 'full'
+				}
+			  }
+		}) }}
+	</section>
+	<section class="content">
+      {{ apos.area(data.page, 'body', {
+      widgets: {
+        'apostrophe-rich-text': {
+          toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+          styles: [
+            { name: 'Heading', element: 'h3' },
+            { name: 'Subheading', element: 'h4' },
+            { name: 'Paragraph', element: 'p' }
+          ]
+        }
+      }
+    }) }}
+	</section>
+{% endblock %}
